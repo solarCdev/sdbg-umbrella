@@ -180,7 +180,7 @@
 				</div>
 			  </div>
 			  
-			  <a href={u.id}>
+			  <a href={"/station/" + u.id}>
 				<div class="card-footer-bar">
 					<span>자세히 보기</span>
 				  </div>
