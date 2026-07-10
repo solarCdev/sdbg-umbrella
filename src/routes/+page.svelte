@@ -271,7 +271,7 @@
 	  display: flex; align-items: center; gap: 6px;
 	  border: 1px solid rgba(255, 255, 255, 0.4); padding: 5px 12px; font-size: 0.8rem;
 	  background: rgba(255, 255, 255, 0.15); font-weight: medium; border-radius: 20px;
-	  backdrop-filter: blur(4px); color: #fff;
+	  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); color: #fff;
 	}
 	.heart-beat { animation: beat 0.6s infinite alternate; }
 	@keyframes beat { 0% { transform: scale(0.9); } 100% { transform: scale(1.1); } }
