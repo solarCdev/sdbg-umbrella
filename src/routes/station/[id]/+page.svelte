@@ -241,7 +241,6 @@
     background: rgba(255, 255, 255, 0.6);
     padding: 8px 18px; border-radius: 30px;
     border: 1px solid rgba(255, 255, 255, 0.4);
-    -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     transition: background 0.2s;
   }
@@ -271,7 +270,6 @@
     border: 1px solid rgba(255, 255, 255, 0.4);
     border-radius: 24px;
     backdrop-filter: blur(25px) saturate(110%) !important;
-    /* -webkit-backdrop-filter: blur(25px) saturate(110%) !important; */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     padding: 25px; position: relative; overflow: hidden;
     color: #111111;
