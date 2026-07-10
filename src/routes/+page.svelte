@@ -302,8 +302,8 @@
     background: rgba(255, 255, 255, 0.35); /* 검은 글씨가 잘 보이도록 카드의 투명도를 약간 높임 */
     border: 1px solid rgba(255, 255, 255, 0.4); 
     border-radius: 20px;
-    backdrop-filter: blur(25px) saturate(110%);
-    -webkit-backdrop-filter: blur(25px) saturate(110%);
+    backdrop-filter: blur(25px) saturate(110%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(110%) !important;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; text-align: left;
