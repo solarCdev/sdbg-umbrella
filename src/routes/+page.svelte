@@ -1,7 +1,7 @@
 <script>
 	import { onMount } from 'svelte';
-
     import { supabase } from '$lib/supabase'; // 방금 만든 클라이언트 불러오기
+	import { timeAgo } from '$lib/index';
 
 	let umbrellas = $state([]); // Svelte 5 룬 상태 변수
 	let lastScrollX = 0;
@@ -29,7 +29,8 @@
           current_count: item.current_count,
           // 물리 모빌용 데이터 세팅
           angle: 0,
-          angularVelocity: 0
+          angularVelocity: 0,
+		  updated_at: item.updated_at
         }));
       } else {
         console.log('Supabase 연결은 성공했으나 테이블이 비어있습니다. 행(Row)을 다시 확인해 보세요.');
@@ -138,6 +139,9 @@
 		<span>2026 나-학교-우리 프로젝트, 공공 우산 위치 확인 서비스 ☂️</span>
 		<span>2026 나-학교-우리 프로젝트, 공공 우산 위치 확인 서비스 ☂️</span>
 		<span>2026 나-학교-우리 프로젝트, 공공 우산 위치 확인 서비스 ☂️</span>
+		<span>2026 나-학교-우리 프로젝트, 공공 우산 위치 확인 서비스 ☂️</span>
+		<span>2026 나-학교-우리 프로젝트, 공공 우산 위치 확인 서비스 ☂️</span>
+		<span>2026 나-학교-우리 프로젝트, 공공 우산 위치 확인 서비스 ☂️</span>
 	  </div>
 	</div>
   
@@ -178,6 +182,7 @@
 				  <span class="count-num">{u.current_count}</span>
 				  <span class="unit">개 남음</span>
 				</div>
+				<span class="updated-at">최근 업데이트: {timeAgo(u.updated_at)}</span>
 			  </div>
 			  
 			  <a href={"/station/" + u.id}>
@@ -194,6 +199,9 @@
   
 	<div class="marquee-banner bottom">
 	  <div class="marquee-track reverse">
+		<span>🙏 다음 사람을 위해 사용한 우산은 꼭 정거장에 반납해 주세요</span>
+		<span>🙏 다음 사람을 위해 사용한 우산은 꼭 정거장에 반납해 주세요</span>
+		<span>🙏 다음 사람을 위해 사용한 우산은 꼭 정거장에 반납해 주세요</span>
 		<span>🙏 다음 사람을 위해 사용한 우산은 꼭 정거장에 반납해 주세요</span>
 		<span>🙏 다음 사람을 위해 사용한 우산은 꼭 정거장에 반납해 주세요</span>
 		<span>🙏 다음 사람을 위해 사용한 우산은 꼭 정거장에 반납해 주세요</span>
@@ -248,7 +256,7 @@
 	/* 흐르는 전광판 스타일 */
 	.marquee-banner {
 	  width: 100%; background: rgba(255, 255, 255, 0.15); color: #fff;
-	  backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+	  backdrop-filter: blur(12px);
 	  font-size: 0.9rem; font-weight: 500; padding: 12px 0;
 	  overflow: hidden; white-space: nowrap;
 	  border-top: 1px solid rgba(255, 255, 255, 0.25);
@@ -271,7 +279,7 @@
 	  display: flex; align-items: center; gap: 6px;
 	  border: 1px solid rgba(255, 255, 255, 0.4); padding: 5px 12px; font-size: 0.8rem;
 	  background: rgba(255, 255, 255, 0.15); font-weight: medium; border-radius: 20px;
-	  -webkit-backdrop-filter: blur(4px); backdrop-filter: blur(4px); color: #fff;
+	  backdrop-filter: blur(4px); color: #fff;
 	}
 	.heart-beat { animation: beat 0.6s infinite alternate; }
 	@keyframes beat { 0% { transform: scale(0.9); } 100% { transform: scale(1.1); } }
@@ -303,7 +311,6 @@
     border: 1px solid rgba(255, 255, 255, 0.4); 
     border-radius: 20px;
     backdrop-filter: blur(25px) saturate(110%) !important;
-    /* -webkit-backdrop-filter: blur(25px) saturate(110%) !important; */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
     position: relative; overflow: hidden;
     display: flex; flex-direction: column; text-align: left;
@@ -341,6 +348,15 @@
   .cozy-count-box {
     display: flex; align-items: baseline; justify-content: center;
     margin: 10px 0;
+  }
+
+  .updated-at {
+	display: flex;
+	margin-top: 12px;
+	text-align: center;
+	align-items: center;
+	justify-content: center;
+	color: #444;
   }
   
   /* 숫자는 고유의 신호등 컬러(--status-color)를 유지하되 가독성을 위해 그림자 제거 */

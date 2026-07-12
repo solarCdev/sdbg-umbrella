@@ -2,6 +2,7 @@
   import { onMount } from 'svelte';
   import { page } from '$app/stores'; 
   import { supabase } from '$lib/supabase'; // 네 lib 폴더 안의 supabase 설정 파일 경로에 맞춤
+	import { timeAgo } from '$lib/index';
 
   // 배경 이미지 경로
   let backgroundImage = $state("/images/raindrop.jpg");
@@ -61,7 +62,8 @@
               location: payload.new.location,
               description: payload.new.description,
               image_url: payload.new.image_url,
-              map_url: payload.new.map_url
+              map_url: payload.new.map_url,
+              updated_at: payload.new.updated_at
             };
           }
         }
@@ -117,6 +119,9 @@
       <div class="panel-header">
         <span class="status-tag" style="background: rgba(255,255,255,0.3); color: var(--status-color)">
           {station.current_count > 0 ? '대여 가능' : '수량 없음'}
+        </span>
+        <span class="status-tag" style="background: rgba(255,255,255,0.3); color: var(--status-color)">
+          최근 업데이트: {timeAgo(station.updated_at)}
         </span>
       </div>
 
