@@ -103,7 +103,7 @@
 <main class="glass-detail-page" style="--bg-image: url('{backgroundImage}'); --status-color: #5e5e5e">
   <a href="/" class="back-btn">⬅️ 돌아가기</a>
   <div class="detail-container" style="display: flex; justify-content: center; align-items: center; color: #fff; font-weight: bold;">
-    거치대 정보를 안전하게 불러오는 중...
+    거치대 정보를 불러오는 중...
   </div>
 </main>
 {:else if station}
@@ -136,7 +136,7 @@
 
       <div class="suggest-block">
         <h3 class="sub-title">✉️ 거치대 건의함</h3>
-        <p class="suggest-info">센서 인식 불량, 우산 파손 등 불편한 점을 남겨주시면 학생회에 전달됩니다.</p>
+        <p class="suggest-info">센서 인식 불량, 우산 파손 등 불편한 점을 남겨주시면 페이지에 전달됩니다.</p>
 
         {#if feedbackSubmitted}
           <div class="success-banner">✔ 의견이 소중하게 접수되었습니다.</div>
@@ -155,7 +155,7 @@
 
     <section class="right-panel glass-card">
       <div class="glass-frost-texture"></div>
-      <h3 class="sub-title">📍 찾아오는 길 가이드</h3>
+      <h3 class="sub-title">📍 거치대 위치 사진</h3>
       
       <div class="image-wrapper">
         {#if station.image_url}
@@ -293,7 +293,6 @@
 
   .sub-title { font-size: 1.1rem; font-weight: bold; margin: 0 0 10px 0; color: #000; position: relative; z-index: 1; }
 
-  /* 1. 왼쪽 패널 찢어짐 방지 */
   .left-panel {
     display: flex;
     flex-direction: column;
@@ -318,6 +317,7 @@
     position: relative;
     z-index: 1;
   }
+
     .suggest-info { font-size: 0.8rem; color: #333; margin: 0 0 10px 0; line-height: 1.4; }
   textarea {
     width: 100%;

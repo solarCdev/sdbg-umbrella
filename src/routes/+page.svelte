@@ -50,7 +50,7 @@
           const targetIndex = umbrellas.findIndex(u => u.id === payload.new.id);
           if (targetIndex !== -1) {
             umbrellas[targetIndex].current_count = payload.new.current_count;
-            umbrellas[targetIndex].angularVelocity += 0.2; 
+            umbrellas[targetIndex].angularVelocity += 0.05; 
           }
         }
       )
